@@ -1,0 +1,27 @@
+.Container{
+  min-width: 200px;
+}
+.Input{
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 15px 0;
+}
+.Select{
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 15px 0;
+}
+.Button{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.ResultList{
+  margin-top: 25px;
+}

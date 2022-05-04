@@ -1,0 +1,22 @@
+.home-page{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: rgb(242,242,242);
+}
+.header{
+  background-color: rgb(42,42,42);
+  color: white;
+  padding: 0px 15px;
+}
+.main{
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+
+}
+.menu{
+  margin-right:25px;
+
+}
