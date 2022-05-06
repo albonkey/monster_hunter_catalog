@@ -1,27 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './SearchBar.module.scss';
 
-const SearchBar = () => {
+const SearchBar = ({searchHandler}) => {
+	const [name, setName] = useState('');
+	const [species, setSpecies] = useState('');
+	const [location, setLocation] = useState('');
+
+	const onSearch = (e) => {
+		e.preventDefault();
+		searchHandler(name, species, location);
+	}
 	 return(
 		 <div className={style.Container}>
 		 <label>Monster Name</label>
-		 	<input type='text' placeholder='Search' className={style.Input}></input>
+		 	<input type='text' placeholder='Search' className={style.Input} onChange={(e) => setName(e.target.value)}></input>
 			<label>Monster Species</label>
-			<select className={style.Select}>
-				<option>All </option>
-				<option>Dragon </option>
-				<option>Orc </option>
+			<select className={style.Select} onChange={(e) => setSpecies(e.target.value)}>
+				<option value=''>All </option>
+				<option value='herbivore'>Herbivore </option>
+				<option value='wingdrake'>Wingdrake</option>
+				<option value='neopteron'>Neopteron</option>
+				<option value='fish'>Fish</option>
 			</select>
-			<label>Location</label>
-			<select className={style.Select}>
-				<option>All </option>
-				<option>Forest </option>
-				<option>Mountain </option>
-			</select>
-			<button type='submit' className={style.Button}>Search</button>
-			<div className={style.ResultList}>
-				Search Results:
-			</div>
+			
+			<button type='submit' className={style.Button} onClick={onSearch}>Search</button>
 		 </div>
 	 )
 }

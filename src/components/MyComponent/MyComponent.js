@@ -10,7 +10,7 @@ const MyComponent = ({ monster}) => {
 					<div className='monster-species'>{monster.species} | <span className='monster-type'>{monster.type}</span></div>
 
 					<br />
-					<img src={require(`../../assets/monster${monster.id}.png`)} className='monster-image'/>
+					<img src={require(`../../assets/monster${'4'}.png`)} className='monster-image'/>
 				</div>
 				<div className='right-page'>
 					<div className='info-header'>Description</div>
@@ -27,15 +27,17 @@ const MyComponent = ({ monster}) => {
 							})
 						}
 					</div>
-					<div className='info-header'>Protection</div>
+					<div className='info-header'>Ailments</div>
 					<div className='info-text'>
 						{
-							monster.protection.skills.map(protection => {
+							monster.ailments.length > 0 ?
+							monster.ailments.map(ailment => {
 								return <div>
-													<div className='info-underheader'>{protection.name}</div>
-													<div>{protection.description}</div>
+													<div className='info-underheader'>{ailment.name}</div>
+													<div>{ailment.description}</div>
 											</div>
-							})
+							}) :
+							<div> --- </div>
 						}
 					</div>
 					<div className='info-header'>Weaknesses</div>
@@ -58,4 +60,22 @@ const MyComponent = ({ monster}) => {
 		 </div>
 	 )
 }
+MyComponent.defaultProps = {
+	monster:{
+		id:4,
+		type:"small",
+		species:"neopteron",
+		name:"Name",
+		description:"Description",
+		ailments:[{
+			id:7,
+			name:"Ailment",
+			description:"Description"
+		}],
+		protection: {skills:[{"id":2,"name":"Paralysis Resistance","description":"Reduces the duration of paralysis."}]},
+		locations:[{id:1,zoneCount:17,name:"Ancient Forest"},{id:2,zoneCount:15,name:"Coral Highlands"},{id:3,zoneCount:15,name:"Wildspire Waste"}],
+		weaknesses:[{element:"fire",stars:1,condition:null},{element:"poison",stars:1,condition:null}],
+
+	}
+	}
 export default MyComponent;
