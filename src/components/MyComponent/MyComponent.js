@@ -2,6 +2,12 @@ import React from 'react';
 import './MyComponent.scss';
 
 const MyComponent = ({ monster}) => {
+	let image;
+	try{
+		image = require(`../../assets/monster${monster.id}.png`)
+	} catch(error){
+		image = require(`../../assets/monster4.png`)
+	}
 	 return(
 		 <div className='my-component'>
 		 	<div className='my-component-content'>
@@ -10,7 +16,7 @@ const MyComponent = ({ monster}) => {
 					<div className='monster-species'>{monster.species} | <span className='monster-type'>{monster.type}</span></div>
 
 					<br />
-					<img src={require(`../../assets/monster${'4'}.png`)} className='monster-image'/>
+					<img src={image} className='monster-image'/>
 				</div>
 				<div className='right-page'>
 					<div className='info-header'>Description</div>
