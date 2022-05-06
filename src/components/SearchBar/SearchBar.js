@@ -21,8 +21,9 @@ const SearchBar = ({searchHandler}) => {
 				<option value='wingdrake'>Wingdrake</option>
 				<option value='neopteron'>Neopteron</option>
 				<option value='fish'>Fish</option>
+				<option value='elder dragon'>Elder Dragon</option>
 			</select>
-			
+
 			<button type='submit' className={style.Button} onClick={onSearch}>Search</button>
 		 </div>
 	 )
