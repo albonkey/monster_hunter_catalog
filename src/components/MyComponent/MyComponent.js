@@ -6,7 +6,7 @@ const MyComponent = ({ monster}) => {
 	try{
 		image = require(`../../assets/monster${monster.id}.png`)
 	} catch(error){
-		image = require(`../../assets/monster4.png`)
+		image = require(`../../assets/monsterx.png`)
 	}
 	 return(
 		 <div className='my-component'>
