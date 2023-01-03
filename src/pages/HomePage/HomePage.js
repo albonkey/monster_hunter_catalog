@@ -12,7 +12,6 @@ const HomePage = () => {
 	useEffect(() => {
 		listMonsters('', '', 'a').then(monsterList => {
 			setMonsters([...monsterList]);
-			console.log(monsterList)
 		})
 	}, [])
 
@@ -23,7 +22,6 @@ const HomePage = () => {
 			console.log(monsterList)
 		})
 	}
-	console.log(currentMonster);
 		 return(
 		 <div className='home-page'>
 			 <div className='header'>
@@ -37,7 +35,7 @@ const HomePage = () => {
 						{
 							monsters.length > 0 ?
 							monsters.map(monster => {
-								return <div className='search-result' onClick={() => {
+								return <div key={monster.id} className='search-result' onClick={() => {
 									getMonster(monster.id).then(monster => {
 										setCurrentMonster(monster);
 									})

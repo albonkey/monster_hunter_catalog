@@ -3,7 +3,6 @@ const base_url = 'https://mhw-db.com';
 const listMonsters = async (name, species, location) => {
   try{
     const url = `${base_url}/monsters?q={"name": {"$like":"${name}%"},"species": {"$like":"${species}%"}}`;
-    console.log(url);
     const {data} = await axios.get(url);
 
     return data;
